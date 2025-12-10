@@ -105,27 +105,30 @@
         "area": "copilot/chat",
         "noCollapse": true,
         "topics": [
-          ["Chat Overview", "/docs/copilot/chat/copilot-chat"],
-          ["Manage Context", "/docs/copilot/chat/copilot-chat-context"],
-          ["Ask Mode", "/docs/copilot/chat/chat-ask-mode"],
-          ["Edit Mode", "/docs/copilot/chat/copilot-edits"],
-          ["Agent Mode", "/docs/copilot/chat/chat-agent-mode"],
+          ["Overview", "/docs/copilot/chat/copilot-chat"],
+          ["Chat Sessions", "/docs/copilot/chat/chat-sessions"],
+          ["Add Context", "/docs/copilot/chat/copilot-chat-context"],
+          ["Review Edits", "/docs/copilot/chat/review-code-edits"],
+          ["Planning", "/docs/copilot/chat/chat-planning"],
+          ["Checkpoints", "/docs/copilot/chat/chat-checkpoints"],
+          ["Tools", "/docs/copilot/chat/chat-tools"],
           ["Inline Chat", "/docs/copilot/chat/inline-chat"],
-          ["Prompt Engineering", "/docs/copilot/chat/prompt-crafting"]
+          ["Prompt Examples", "/docs/copilot/chat/prompt-examples"],
+          ["Chat Debug View", "/docs/copilot/chat/chat-debug-view"]
         ]
       }
       ],
-      ["Code Completions", "/docs/copilot/ai-powered-suggestions"],
+      ["Inline Suggestions", "/docs/copilot/ai-powered-suggestions"],
       ["Copilot Coding Agent", "/docs/copilot/copilot-coding-agent"],
       ["", "", {
-        "name": "Customize Copilot",
+        "name": "Customization",
         "area": "copilot/customization",
         "noCollapse": true,
         "topics": [
           ["Overview", "/docs/copilot/customization/overview"],
-          ["Custom Instructions", "/docs/copilot/customization/custom-instructions"],
+          ["Instructions", "/docs/copilot/customization/custom-instructions"],
           ["Prompt Files", "/docs/copilot/customization/prompt-files"],
-          ["Chat Modes", "/docs/copilot/customization/custom-chat-modes"],
+          ["Custom Agents", "/docs/copilot/customization/custom-agents"],
           ["Language Models", "/docs/copilot/customization/language-models"],
           ["MCP", "/docs/copilot/customization/mcp-servers"]
         ]
@@ -136,6 +139,8 @@
         "area": "copilot/guides",
         "noCollapse": true,
         "topics": [
+          ["Prompt Engineering", "/docs/copilot/guides/prompt-engineering-guide"],
+          ["Context Engineering", "/docs/copilot/guides/context-engineering-guide"],
           ["Edit Notebooks with AI", "/docs/copilot/guides/notebooks-with-ai"],
           ["Test with AI", "/docs/copilot/guides/test-with-copilot"],
           ["Debug with AI", "/docs/copilot/guides/debug-with-copilot"],
@@ -165,8 +170,13 @@
     "area": "sourcecontrol",
     "topics": [
       ["Overview", "/docs/sourcecontrol/overview"],
-      ["Introduction to Git", "/docs/sourcecontrol/intro-to-git"],
+      ["Quickstart", "/docs/sourcecontrol/quickstart"],
+      ["Staging & Committing", "/docs/sourcecontrol/staging-commits"],
+      ["Branches & Worktrees", "/docs/sourcecontrol/branches-worktrees"],
+      ["Repositories & Remotes", "/docs/sourcecontrol/repos-remotes"],
+      ["Merge Conflicts", "/docs/sourcecontrol/merge-conflicts"],
       ["Collaborate on GitHub", "/docs/sourcecontrol/github"],
+      ["Troubleshooting", "/docs/sourcecontrol/troubleshooting"],
       ["FAQ", "/docs/sourcecontrol/faq"]
     ]
   },
@@ -356,7 +366,8 @@
       ["PyTorch Support", "/docs/datascience/pytorch-support"],
       ["Azure Machine Learning", "/docs/datascience/azure-machine-learning"],
       ["Manage Jupyter Kernels", "/docs/datascience/jupyter-kernel-management"],
-      ["Jupyter Notebooks on the Web", "/docs/datascience/notebooks-web"]
+      ["Jupyter Notebooks on the Web", "/docs/datascience/notebooks-web"],
+      ["Data science in Microsoft Fabric", "/docs/datascience/microsoft-fabric-quickstart"]
     ]
   },
   {
@@ -364,12 +375,14 @@
     "area": "intelligentapps",
     "topics": [
       ["AI Toolkit Overview", "/docs/intelligentapps/overview"],
+      ["AI Toolkit Copilot tools", "/docs/intelligentapps/copilot-tools"],
       ["Models", "/docs/intelligentapps/models"],
       ["Playground", "/docs/intelligentapps/playground"],
       ["Agent Builder", "/docs/intelligentapps/agentbuilder"],
       ["Bulk Run", "/docs/intelligentapps/bulkrun"],
       ["Evaluation", "/docs/intelligentapps/evaluation"],
-      ["Fine-tune", "/docs/intelligentapps/finetune"],
+      ["Fine-tuning (Automated Setup)", "/docs/intelligentapps/finetune"],
+      ["Fine-tuning (Project Template)", "/docs/intelligentapps/finetune-legacy"],
       ["Model Conversion", "/docs/intelligentapps/modelconversion"],
       ["Tracing", "/docs/intelligentapps/tracing"],
       ["FAQ", "/docs/intelligentapps/faq"],

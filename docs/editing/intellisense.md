@@ -1,6 +1,6 @@
 ---
 ContentId: 80f4fa1e-d4c5-42cf-8b12-4b8e88c41c3e
-DateApproved: 09/11/2025
+DateApproved: 11/12/2025
 MetaDescription:  Learn about Visual Studio Code IntelliSense (intelligent code completion).
 ---
 # IntelliSense
@@ -188,6 +188,12 @@ To get started:
 ## Troubleshooting
 
 If you find IntelliSense has stopped working, the language service may not be running. Try restarting VS Code and this should solve the issue. If you are still missing IntelliSense features after installing a language extension, open an issue in the repository of the language extension.
+
+> [!NOTE]
+> In very large workspaces, IntelliSense features may be partially disabled for
+> performance reasons. If this happens, try excluding large folders (such as
+> `node_modules` or build output directories) using the `setting(files.exclude)` or
+> `setting(search.exclude)` settings.
 
 > [!TIP]
 > For configuring and troubleshooting JavaScript IntelliSense, see the [JavaScript documentation](/docs/languages/javascript.md#intellisense).

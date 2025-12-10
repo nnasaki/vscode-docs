@@ -1,6 +1,6 @@
 ---
 ContentId: 7FDF94DB-3527-4296-BE1C-493495B89408
-DateApproved: 09/11/2025
+DateApproved: 11/12/2025
 MetaDescription: Get Visual Studio Code up and running on Linux.
 ---
 # Visual Studio Code on Linux
@@ -20,7 +20,7 @@ MetaDescription: Get Visual Studio Code up and running on Linux.
 
     Customize VS Code with themes, formatters, language extensions and debuggers for your favorite languages, and more.
 
-1. [Enable AI features](/docs/copilot/setup-simplified.md)
+1. [Enable AI features](/docs/copilot/setup.md)
 
     > [!TIP]
     > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
@@ -59,9 +59,9 @@ MetaDescription: Get Visual Studio Code up and running on Linux.
     1. Run the following script to install the signing key:
 
         ```bash
-        sudo apt-get install wget gpg
-        wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-        sudo install -D -o root -g root -m 644 microsoft.gpg /usr/share/keyrings/microsoft.gpg
+        sudo apt-get install wget gpg &&
+        wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg &&
+        sudo install -D -o root -g root -m 644 microsoft.gpg /usr/share/keyrings/microsoft.gpg &&
         rm -f microsoft.gpg
         ```
 
@@ -79,8 +79,8 @@ MetaDescription: Get Visual Studio Code up and running on Linux.
     1. Lastly, update the package cache and install the package:
 
         ```bash
-        sudo apt install apt-transport-https
-        sudo apt update
+        sudo apt install apt-transport-https &&
+        sudo apt update &&
         sudo apt install code # or code-insiders
         ```
 
@@ -94,21 +94,21 @@ We currently ship the stable 64-bit VS Code for RHEL, Fedora, or CentOS based di
 1. Install the key and yum repository by running the following script:
 
     ```bash
-    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc &&
     echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
     ```
 
 1. Then update the package cache and install the package using `dnf` (Fedora 22 and above):
 
     ```bash
-    dnf check-update
+    dnf check-update &&
     sudo dnf install code # or code-insiders
     ```
 
     Or on older versions using `yum`:
 
     ```bash
-    yum check-update
+    yum check-update &&
     sudo yum install code # or code-insiders
     ```
 
@@ -141,8 +141,8 @@ The yum repository [mentioned previously](#rhel-fedora-and-centos-based-distribu
 1. Install the  key and yum repository by running the following script:
 
     ```bash
-    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-    echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" |sudo tee /etc/zypp/repos.d/vscode.repo > /dev/null
+    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc &&
+    echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/zypp/repos.d/vscode.repo > /dev/null
     ```
 
 1. Then update the package cache and install the package using:
@@ -279,7 +279,7 @@ The current limit can be viewed by running:
 cat /proc/sys/fs/inotify/max_user_watches
 ```
 
-The limit can be increased to its maximum by editing `/etc/sysctl.conf` (except on Arch Linux, read below) and adding this line to the end of the file:
+The limit can be increased to its maximum by editing `/etc/sysctl.conf` (except on Arch Linux and Ubuntu 24.10 and later, read below) and adding this line to the end of the file:
 
 ```bash
 fs.inotify.max_user_watches=524288
@@ -289,7 +289,7 @@ The new value can then be loaded in by running `sudo sysctl -p`.
 
 While 524,288 is the maximum number of files that can be watched, if you're in an environment that is particularly memory-constrained, you might want to lower the number. Each file watch [takes up 1,080 bytes](https://stackoverflow.com/a/7091897/1156119), so assuming that all 524,288 watches are consumed, that results in an upper bound of around 540 MiB.
 
-[Arch](https://www.archlinux.org/)-based distros (including Manjaro) require you to change a different file; follow [these steps](https://gist.github.com/tbjgolden/c53ca37f3bc2fab8c930183310918c8c) instead.
+[Arch](https://www.archlinux.org/)-based distros (including Manjaro) and Ubuntu-based distros starting with 24.10 require you to change a different file; follow [these steps](https://gist.github.com/tbjgolden/c53ca37f3bc2fab8c930183310918c8c) instead.
 
 Another option is to exclude specific workspace directories from the VS Code file watcher with the `setting(files.watcherExclude)` [setting](/docs/configure/settings.md). The default for `setting(files.watcherExclude)` excludes `node_modules` and some folders under `.git`, but you can add other directories that you don't want VS Code to track.
 
