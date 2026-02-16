@@ -1,9 +1,12 @@
 ---
 ContentId: 4bbd7ad1-8420-4ddd-a86f-442497e597b1
-DateApproved: 12/10/2025
+DateApproved: 02/04/2026
 MetaDescription: Polyglot Notebooks for multiple programming languages in Visual Studio Code.
 ---
 # Polyglot Notebooks in VS Code
+
+> [!IMPORTANT]
+> Polyglot Notebooks will be deprecated March 27th, 2026. For guidance, please visit: <http://aka.ms/pgnb-dep>
 
 **What is Polyglot Programming?**
 

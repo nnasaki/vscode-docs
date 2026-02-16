@@ -1,6 +1,6 @@
 ---
 ContentId: FC5262F3-D91D-4665-A5D2-BCBCCF66E53A
-DateApproved: 12/10/2025
+DateApproved: 02/04/2026
 MetaDescription: Get Visual Studio Code up and running.
 MetaSocialImage: images/quicksetup/quick-setup-social.png
 ---
@@ -9,6 +9,13 @@ MetaSocialImage: images/quicksetup/quick-setup-social.png
 VS Code is a free code editor, which runs on the macOS, Linux, and Windows operating systems. Getting up and running with Visual Studio Code is quick and easy. It is a small download so you can install in a matter of minutes and give VS Code a try.
 
 VS Code is lightweight and should run on most available hardware and platform versions. You can review the [System Requirements](/docs/supporting/requirements.md) to check if your computer configuration is supported.
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
+Follow a hands-on tutorial to build your first app with AI in VS Code.
+
+* [Start tutorial](/docs/copilot/getting-started.md)
+
+</div>
 
 ## Set up VS Code for your platform
 
@@ -32,7 +39,7 @@ VS Code is lightweight and should run on most available hardware and platform ve
 1. [Enable AI features](/docs/copilot/setup.md)
 
     > [!TIP]
-    > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
+    > If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of inline suggestions and chat interactions.
 
 1. [Get started with the VS Code tutorial](/docs/getstarted/getting-started.md)
 

@@ -1,8 +1,16 @@
 ---
 ContentId: 33e63aa1-1d8f-4d23-9733-1475f8c9f502
-DateApproved: 12/10/2025
+DateApproved: 02/04/2026
 MetaDescription: Learn how to choose between different AI language models and how to use your own language model API key in Visual Studio Code.
 MetaSocialImage: ../images/shared/github-copilot-social.png
+Keywords:
+- language models
+- BYOK
+- bring your own key
+- copilot
+- ai
+- local models
+- customize
 ---
 # AI language models in VS Code
 
@@ -127,7 +135,7 @@ To configure a language model from a built-in provider:
 
 1. You can now select the model from the model picker in chat.
 
-    For a model to be available when using [agents](/docs/copilot/chat/copilot-chat.md#built-in-agents), it must support tool calling. If the model doesn't support tool calling, it won't be shown in the model picker.
+    For a model to be available when using [agents](/docs/copilot/agents/overview.md), it must support tool calling. If the model doesn't support tool calling, it won't be shown in the model picker.
 
 > [!NOTE]
 > Configuring a custom OpenAI-compatible model is currently only available in [VS Code Insiders](https://code.visualstudio.com/insiders/) as of release 1.104. You can also manually add your OpenAI-compatible model configuration in the `setting(github.copilot.chat.customOAIModels)` setting.
@@ -143,6 +151,14 @@ To update the details of a model provider you have configured previously:
    ![Screenshot that shows the model provider Quick Pick, with a gear icon next to the provider name.](../images/language-models/reconfigure-model-provider.png)
 
 1. Update the provider details, such as the API key or endpoint URL.
+
+## Change the model for inline chat
+
+You can configure a default language model for editor inline chat. This enables you to use a different model for inline chat than for chat conversations.
+
+To configure the default model for inline chat, use the `setting(inlineChat.defaultModel)` setting. The setting lists all available models from the model picker.
+
+If you change the model during an inline chat session, the selection persists for the remainder of the session. After you reload VS Code, the model resets to the value specified in the `setting(inlineChat.defaultModel)` setting.
 
 ## Change the model for inline suggestions
 
@@ -169,7 +185,6 @@ You can use locally hosted models in chat by using [bring your own model key](#b
 
 * Use a built-in model provider that supports local models
 * Install an extension from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/search?term=tag%3Alanguage-models&target=VSCode&category=All%20categories&sortBy=Relevance), for example, [AI Toolkit for VS Code with Foundry Local](https://aka.ms/AIToolkit)
-* Configure a [custom OpenAI-compatible model](#_add-an-openaicompatible-model)
 
 Currently, you cannot connect to a local model for inline suggestions. VS Code provides an extension API [`InlineCompletionItemProvider`](/api/references/vscode-api.md#InlineCompletionItemProvider) that enables extensions to contribute a custom completion provider. You can get started with our [Inline Completions sample](https://github.com/microsoft/vscode-extension-samples/blob/main/inline-completions).
 
@@ -187,3 +202,4 @@ No, currently you need to have access to a Copilot plan (for example, Copilot Fr
 ## Related resources
 
 * [Available language models in GitHub Copilot](https://docs.github.com/en/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat?tool=vscode)
+* [Security considerations for AI in VS Code](/docs/copilot/security.md)

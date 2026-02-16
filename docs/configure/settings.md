@@ -1,6 +1,6 @@
 ---
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
-DateApproved: 12/10/2025
+DateApproved: 02/04/2026
 MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
 # User and workspace settings
@@ -99,10 +99,10 @@ Here are some of the filters available:
 
 * `@ext`: settings specific to an extension. You provide the extension ID such as `@ext:ms-python.python`.
 * `@feature`: settings specific to a **Features** subgroup. For example, `@feature:explorer` shows settings of the File Explorer.
-* `@haspolicy`: settings that are controlled by your [organization](/docs/setup/enterprise.md).
+* `@haspolicy`: settings that are controlled by your [organization](/docs/enterprise/policies.md).
 * `@id`: find a setting based on the setting ID. For example, `@id:workbench.activityBar.visible`.
 * `@lang`: apply a language filter based on a language ID. For example, `@lang:typescript`. See [Language-specific editor settings](#language-specific-editor-settings) for more details.
-* `@tag`: settings specific to a system of VS Code. For example, `@tag:workspaceTrust` for settings related to [Workspace Trust](/docs/editing/workspaces/workspace-trust.md), `@tag:accessibility` for settings related to accessibility, or `@tag:advanced` for advanced VS Code settings.
+* `@tag`: settings specific to a system of VS Code. For example, `@tag:workspaceTrust` for settings related to [Workspace Trust](/docs/editing/workspaces/workspace-trust.md), `@tag:accessibility` for settings related to accessibility, or `@tag:advanced` for advanced VS Code settings. Advanced settings are intended for specialized scenarios. By default, advanced settings are hidden from search results unless you use the `@tag:advanced` filter. To always show advanced settings in the Settings editor, enable `setting(workbench.settings.alwaysShowAdvancedSettings)`.
 
 The search bar remembers your settings search queries and supports undo or redo (`kb(undo)`/`kb(redo)`). You can quickly clear a search term or filter with the **Clear Settings Search Input** button at the right of the search bar.
 
@@ -272,6 +272,9 @@ Setting values can be of various types:
 * Number - `"files.autoSaveDelay": 1000`
 * Array - `"editor.rulers": []`
 * Object - `"search.exclude": { "**/node_modules": true, "**/bower_components": true }`
+
+> [!NOTE]
+> Settings like `files.exclude` and `search.exclude` use [glob patterns](/docs/editor/glob-patterns.md) that follow your operating system's file system case sensitivity (case-insensitive on Windows/macOS, case-sensitive on Linux). Similarly, `.gitignore` file patterns (used with the `setting(explorer.excludeGitIgnore)` setting) also follow platform-specific case sensitivity rules.
 
 Values with primitive types and Array types are overridden, meaning a configured value in a scope that takes precedence over another scope is used instead of the value in the other scope. But, values with Object types are merged.
 

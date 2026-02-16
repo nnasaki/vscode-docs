@@ -1,6 +1,6 @@
 ---
 ContentId: 37fd3bd2-4209-49f6-bec5-c544d6b1b289
-DateApproved: 12/10/2025
+DateApproved: 02/04/2026
 MetaDescription: Build your first web application with GitHub Copilot in VS Code. Learn inline suggestions, agents, inline chat, smart actions, and how to personalize your AI coding experience.
 MetaSocialImage: images/shared/github-copilot-social.png
 ---
@@ -9,6 +9,13 @@ MetaSocialImage: images/shared/github-copilot-social.png
 GitHub Copilot transforms how you write code in Visual Studio Code. In this hands-on tutorial, you build a complete task management web application while discovering VS Code's AI capabilities: intelligent inline suggestions, autonomous feature development with agents, precise editing with inline chat, integrated smart actions, and powerful customization options.
 
 By the end of this tutorial, you'll have both a working web application and a personalized AI coding setup that adapts to your development style.
+
+<div class="docs-action" data-show-in-doc="true" data-show-in-sidebar="true" title="Create the sample app">
+Use chat in VS Code to generate the sample application in one go.
+
+* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=%23newWorkspace%20task%20manager%20web%20application%20with%20the%20ability%20to%20add%2C%20delete%2C%20and%20mark%20tasks%20as%20completed.%20Add%20the%20code%2C%20custom%20instructions%2C%20and%20all%20custom%20agent%20definitions%20to%20this%20new%20workspace%20as%20described%20in%20https%3A%2F%2Fcode.visualstudio.com%2Fdocs%2Fcopilot%2Fgetting-started%0AAsk%20the%20user%20which%20tech%20stack%20they%20want%20to%20use.)
+
+</div>
 
 ## Prerequisites
 
@@ -59,17 +66,20 @@ Inline suggestions work automatically as you type, learning from your patterns a
 
 ## Step 2: Build complete features with agents
 
-Agents are VS Code's most powerful AI capability. Given a natural language prompt, they autonomously plan and implement complex features across multiple files. Let's use them to create the core functionality of your task manager.
+AI Agents are VS Code's most powerful AI capability. Given a natural language prompt, they autonomously plan and implement complex features across multiple files. Let's use them to create the core functionality of your task manager application.
 
 1. Open the Chat view by pressing `kb(workbench.action.chat.open)` or by selecting the chat icon in the VS Code title bar.
 
-    The Chat view enables you to have an ongoing conversation with the AI, making it easier to refine your requests and get better results.
+    The Chat view is where you interact with the AI by using natural language prompts. You can have an ongoing conversation and iteratively refine your requests to get better results.
 
-1. In the agent picker at the top of the Chat view, select **Agent** to switch to an autonomous coding mode.
+1. Select **Agent** in the agent dropdown menu to let the AI independently implement your request end-to-end.
 
     ![Screenshot showing the agent picker in the Chat view.](./images/getting-started/agent-mode-selection.png)
 
-1. Enter the following prompt and press `kbstyle(Enter)`. The agent will analyze your request and begin implementing the solution:
+    > [!IMPORTANT]
+    > If you don't see the agent option, make sure agents are enabled in your VS Code settings (`setting(chat.agent.enabled)`). Your organization might also have disabled agents - contact your admin to enable this functionality.
+
+1. Enter the following prompt and press `kbstyle(Enter)`. The agent analyzes your request and begins implementing the solution.
 
     ```prompt
     Create a complete task manager web application with the ability to add, delete, and mark tasks as completed. Include modern CSS styling and make it responsive. Use semantic HTML and ensure it's accessible. Separate markup, styles, and scripts into their own files.
@@ -82,12 +92,9 @@ Agents are VS Code's most powerful AI capability. Given a natural language promp
 
 1. Review the generated files and select **Keep** to accept all the changes.
 
-1. Open your `index.html` file in a browser to see your task manager in action. You can add tasks, mark them as complete, and delete them.
+1. Open your `index.html` file in the integrated browser VS Code by right-clicking the file and selecting **Show Preview**. You can add tasks, mark them as complete, and delete them.
 
-    > [!TIP]
-    > Use the [Live Preview extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server) to see your changes in VS Code, in real-time as you develop.
-
-1. Let's add an extra feature. Enter the following prompt in the chat input box:
+1. Now, let's add an extra feature. Enter the following prompt in the chat input box:
 
     ```prompt
     Add a filter system with buttons to show all tasks, only completed tasks, or only pending tasks. Update the styling to match the existing design.
@@ -167,6 +174,9 @@ Custom instructions tell the AI about your coding preferences and standards. The
 
     Notice how the generated code follows the guidelines you specified. VS Code supports more advanced custom instructions like applying instructions for specific file types.
 
+> [!TIP]
+> Use the `/init` slash command in chat to automatically generate custom instructions based on your project's structure and coding patterns. This is useful if you have an existing codebase and want to prepare it for AI assistance.
+
 ### Create a custom agent for code reviews
 
 Custom agents create specialized AI personas for specific tasks. Let's create a "Code Reviewer" agent that focuses on analysis and providing feedback on code. In the custom agent definition, you can define the AI's role, specific guidelines, and which tools it can use.
@@ -177,14 +187,15 @@ Custom agents create specialized AI personas for specific tasks. Let's create a 
 
     This option adds the custom agent to your workspace, enabling other team members to use it when they open the project.
 
-1. Name the custom agent "Code Reviewer". This creates a new file called `Code Reviewer.md` in the `.github/agents` folder.
+1. Name the custom agent "Reviewer". This creates a new file called `Reviewer.agent.md` in the `.github/agents` folder.
 
 1. Replace the file contents with the following content. Note that this custom agent doesn't allow code changes.
 
     ```markdown
     ---
+    name: 'Reviewer'
     description: 'Review code for quality and adherence to best practices.'
-    tools: ['usages', 'vscodeAPI', 'problems', 'fetch', 'githubRepo', 'search']
+    tools: ['vscode/askQuestions', 'vscode/vscodeAPI', 'read', 'agent', 'search', 'web']
     ---
     # Code Reviewer agent
 
@@ -205,11 +216,11 @@ Custom agents create specialized AI personas for specific tasks. Let's create a 
 
 1. Save the file. In the Chat view, you can now select this custom agent from the agent picker.
 
-    ![Screenshot showing the Code Reviewer custom agent in the agent picker.](./images/getting-started/custom-mode-dropdown.png)
+    ![Screenshot showing the Reviewer custom agent in the agent picker.](./images/getting-started/custom-mode-dropdown.png)
 
-1. Test your custom agent by selecting **Code Reviewer** from the agent picker and entering the following prompt:
+1. Test your custom agent by selecting **Reviewer** from the agent picker and entering the following prompt:
 
-    ```prompt
+    ```prompt-Reviewer
     Review my full project
     ```
 
@@ -253,7 +264,12 @@ You can further enhance your AI's capabilities by exploring other customization 
 
 ## Related resources
 
+* [Agents tutorial](/docs/copilot/agents/agents-tutorial.md): Hands-on tutorial for working with different agent types
+
 * [Cheat sheet for using AI features](/docs/copilot/reference/copilot-vscode-features.md) - Quick reference for all GitHub Copilot features in VS Code
+
 * [Chat documentation](/docs/copilot/chat/copilot-chat.md) - Deep dive into autonomous coding in VS Code
+
 * [Customization guide](/docs/copilot/customization/overview.md) - Advanced personalization techniques
+
 * [MCP tools](/docs/copilot/customization/mcp-servers.md) - Extend agents with external APIs and services

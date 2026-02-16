@@ -1,6 +1,6 @@
 ---
 ContentId: 72ad9b70-5227-4032-81d7-6aec00a1e8f8
-DateApproved: 12/10/2025
+DateApproved: 02/04/2026
 MetaDescription: This tutorial gives you an overview of the key features of Visual Studio Code to help you get started quickly.
 ---
 # Tutorial: Get started with Visual Studio Code
@@ -8,7 +8,21 @@ MetaDescription: This tutorial gives you an overview of the key features of Visu
 In this tutorial, you learn about the key features of Visual Studio Code to help you get started with coding quickly. You learn about the different components of the user interface and how to customize it to your liking. You then write some code and use the built-in code editing features, such as IntelliSense and Code Actions, and you learn about running and debugging your code. By installing a language extension, you add support for a different programming language.
 
 > [!TIP]
-> If you prefer to follow along with a video, you can watch the [Getting Started video](https://www.youtube.com/watch?v=B-s71n0dHUk), which covers the same steps as this tutorial.
+> If you prefer a video to learn about Visual Studio Code, you can watch the [Getting Started video](https://www.youtube.com/watch?v=f8_uF_IDV50) on our YouTube channel.
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
+Follow a hands-on tutorial to build your first app with AI in VS Code.
+
+* [Start tutorial](/docs/copilot/getting-started.md)
+
+</div>
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Watch the introduction video">
+Learn about the key features of Visual Studio Code in our introduction video.
+
+* [Watch video](https://www.youtube.com/watch?v=f8_uF_IDV50)
+
+</div>
 
 ## Prerequisites
 
@@ -20,23 +34,15 @@ You can use VS Code to work on individual files to make quick edits, or you can 
 
 Let's start by creating a folder and opening it in VS Code. You'll use this folder throughout the tutorial.
 
-1. Open Visual Studio Code.
+1. Open Visual Studio Code and select **File** > **Open Folder...** from the menu to open a folder.
 
-    When you first open VS Code, you should see the **Welcome** page with different actions to get started.
+1. Select **New Folder** and create a new folder named `vscode101`. Then select **Select Folder** (**Open** on macOS) to open the folder in VS Code.
 
-1. Select **File** > **Open Folder...** from the menu to open a folder.
-
-    ![Screenshot that shows VS Code after opening a folder, highlighting the Explorer view.](images/getting-started/open-folder.png)
-
-1. Select **New Folder**, create a new folder named `vscode101`, and then select **Select Folder** (**Open** on macOS).
-
-    The folder you create is the root of your workspace.
+    VS Code now considers the folder you've opened a workspace.
 
 1. On the Workspace Trust dialog, select **Yes, I trust the authors** to enable all features in the workspace.
 
     ![Screenshot that shows the Workspace Trust dialog.](images/getting-started/workspace-trust.png)
-
-    Because you created the folder on your computer, you can trust the code in the folder.
 
     > [!IMPORTANT]
     > Workspace Trust lets you decide whether code in your project folder can be executed by VS Code. When you download code from the internet, you should first review it to make sure it's safe to run. Get more info about [Workspace Trust](/docs/editing/workspaces/workspace-trust.md).
@@ -44,6 +50,8 @@ Let's start by creating a folder and opening it in VS Code. You'll use this fold
 1. You should now see the **Explorer** view on the left, showing the name of the folder.
 
     You'll use the Explorer view to view and manage the files and folders in your workspace.
+
+    ![Screenshot of VS Code with the Explorer view opened and showing the vscode101 folder.](images/getting-started/vscode-folder-opened.png)
 
 > [!TIP]
 > When you open a folder in VS Code, VS Code can restore the UI state for that folder, such as the open files, the active view, and the layout of the editor. You can also configure settings that only apply to that folder, or define debug configurations. Get more info about [workspaces](/docs/editing/workspaces/workspaces.md).
@@ -91,7 +99,7 @@ Now that you have a folder open in VS Code, let's take a quick tour of the user 
 
 ### Access the terminal from the Panel area
 
-1. VS Code has an integrated terminal. Open it by pressing `kb(workbench.action.terminal.toggleTerminal)`.
+1. VS Code has an integrated terminal. Open it by pressing `kb(workbench.action.terminal.toggleTerminal)`. You can also use the **View** > **Terminal** menu item.
 
     You can choose between different shells, such as PowerShell, Command Prompt, or Bash, depending on your operating system configuration.
 
@@ -113,9 +121,9 @@ Now that you have a folder open in VS Code, let's take a quick tour of the user 
 
 ### Access commands with the Command Palette
 
-1. Open the **Command Palette** by pressing `kb(workbench.action.showCommands)`. You can also use the **View** > **Command Palette...** menu item.
+1. Open the **Command Palette** by pressing `kb(workbench.action.showCommands)`. You can also use the **View** > **Command Palette** menu item.
 
-    Many of the commands in VS Code are available through the Command Palette. When you install extensions, they can also add commands to the Command Palette.
+    Many of the commands in VS Code are available through the Command Palette. When you install extensions, they can add extra commands to the Command Palette.
 
     ![Screenshot that shows the Command Palette.](images/getting-started/command-palette.png)
 
@@ -124,13 +132,15 @@ Now that you have a folder open in VS Code, let's take a quick tour of the user 
 
 1. The Command Palette supports different modes of operation:
 
-    1. After the `>` symbol, start typing to filter the command list. For example, type `move terminal` to find commands to move the terminal to a new window.
+    1. **Command mode (`>`)**: after the `>` symbol, start typing to filter the command list. For example, type `move terminal` to find commands to move the terminal to a new window.
 
         ![Screenshot that shows the Command Palette, listing the entries for moving the terminal.](images/getting-started/command-palette-move-terminal.png)
 
-    1. Remove the `>` character and start typing to search for files in your workspace. You can use the `kb(workbench.action.quickOpen)` keyboard shortcut to open the Command Palette and start searching for files directly.
+    1. **Quick Open mode**: remove the `>` character and start typing to search for files in your workspace. You can use the `kb(workbench.action.quickOpen)` keyboard shortcut to open the Command Palette and start searching for files directly.
 
         ![Screenshot that shows the Quick Open feature in the Command Palette.](images/getting-started/quick-open.png)
+
+    1. **Symbol search mode (`#`)**: replace the `>` character by `#` to search for symbols like variables or functions in your code.
 
 > [!TIP]
 > VS Code uses fuzzy matching to find files or commands. For example, typing `odks` returns the `Open Default Keyboard Shortcuts` command.
@@ -299,47 +309,57 @@ Let's debug the `hello.py` program that you created in the previous step.
 
 There are many more debugging features in VS Code, such as watch variables, conditional breakpoints, and launch configurations. Dive into the details of [debugging in VS Code](/docs/debugtest/debugging.md).
 
-## Enhance your coding with AI and GitHub Copilot
+## Use AI to accelerate your coding
 
-GitHub Copilot is an AI-powered assistant that helps you write code faster, and can help you with a wide range of tasks, such as code completion, code refactoring, and fixing errors.
+VS Code has built-in support for GitHub Copilot, an AI-powered assistant that helps with a wide range of tasks, such as code completion, code refactoring, implementing new features, and more.
 
-Let's get started by getting code suggestions from Copilot.
+Let's use chat-based interactions with AI to implement a new feature in the `hello.py` file.
 
-1. Make sure you have set up Copilot in VS Code. Follow the steps in our [Copilot Setup](/docs/copilot/setup.md) guide.
-
-    > [!TIP]
-    > If you don't have a Copilot subscription yet, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of completions and chat interactions.
-
-1. In the `hello.py` file, place the cursor at the end of the file and type this function header.
-
-    ```python
-    def say_day_of_week(date)
-    ```
-
-    GitHub Copilot will automatically suggest the rest of the function. Accept the code suggestion by pressing `kbstyle(Tab)`.
-
-1. Next, let's invoke our new function.
-
-    ```python
-    say_day_of_week(date.today())
-    ```
-
-    Notice that there's a squiggle on the `date` keyword, indicating that there's an error.
-
-1. Put the cursor, on the `date` keyword, select the _lightbulb_ icon, and then select **Fix with Copilot**.
-
-    ![Screenshot that shows the lightbulb Code Action to fix an error with Copilot.](images/getting-started/code-action-fix-with-copilot.png)
-
-    GitHub Copilot will suggest a fix for the error. Select **Accept** if you're happy with the suggestion.
+1. Make sure you have set up GitHub Copilot in VS Code. Follow the steps in our [Copilot Setup](/docs/copilot/setup.md) guide.
 
     > [!TIP]
-    > You can also use the `kb(editor.action.quickFix)` keyboard shortcut to manually trigger a quick fix.
+    > If you don't have a Copilot subscription yet, you can use Copilot for free by signing up for the [Copilot Free plan](https://github.com/github-copilot/signup) and get a monthly limit of inline suggestions and chat interactions.
 
-There's a lot more you can do with Copilot in VS Code. Discover more about GitHub Copilot in VS Code with our [Copilot Quickstart](/docs/copilot/getting-started.md).
+1. Open the Chat view by selecting the **Chat** > **Open Chat** in the VS Code title bar.
+
+    The Chat view is where you can have conversations with AI. You can ask questions about your code, plan new features, or ask to implement new functionality.
+
+    ![Screenshot that shows the Chat view.](images/getting-started/chat-view.png)
+
+1. In the chat input box, enter the following prompt to implement an interactive calendar:
+
+    ```prompt
+    Create a terminal-based interactive calendar in Python that shows the current month and allows users to navigate to previous and next months.
+    ```
+
+1. Press `kbstyle(Enter)` to send the prompt to the AI.
+
+    The AI responds in the chat conversation and starts generating the code. You can view the list of changed files, and the editor shows a diff of the changes.
+
+    ![Screenshot that shows the AI generating code in response to a prompt in the Chat view.](images/getting-started/ai-generating-code.png)
+
+1. Run the generated code to see the interactive calendar in action.
+
+    ![Screenshot that shows the terminal with the interactive calendar generated by AI.](images/getting-started/interactive-calendar.png)
+
+1. Review the generated code and select **Keep** to accept the changes.
+
+1. Experiment further by asking the AI follow-up questions to add more features to the calendar.
+
+For a deeper dive into using AI in VS Code, try our [Copilot Quickstart](/docs/copilot/getting-started.md) tutorial, where you can follow along with a hands-on tutorial to build your first app with AI in VS Code.
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Create a basic game">
+Use agents in VS Code to generate a tic-tac-toe game in your language of choice.
+
+* [Open in VS Code](vscode://GitHub.Copilot-Chat/chat?agent=agent%26prompt=%23newWorkspace%20Create%20a%20basic%20tic-tac-toe%20game.%20Ask%20the%20user%20about%20their%20language%20of%20choice)
+
+</div>
 
 ## Next steps
 
 Congratulations! You've completed the tutorial and explored some of the key features of Visual Studio Code. Now that you've learned the basics of Visual Studio Code, get more info about how to:
+
+- [Use AI to accelerate your coding](/docs/copilot/getting-started.md)
 
 - [Discover and run unit tests for your code](/docs/debugtest/testing.md)
 

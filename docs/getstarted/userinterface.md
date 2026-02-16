@@ -1,6 +1,6 @@
 ---
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
-DateApproved: 12/10/2025
+DateApproved: 02/04/2026
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User interface
@@ -8,6 +8,20 @@ MetaDescription: A quick overview of the Visual Studio Code user interface. Lear
 At its heart, Visual Studio Code is a code editor. Like many other code editors, VS Code adopts a common user interface and layout of an explorer on the left, showing all of the files and folders you have access to, and an editor on the right, showing the content of the files you have opened.
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nORT3-kONgA" title="Transform your VS Code user interface" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Get started with AI">
+Follow a hands-on tutorial to build your first app with AI in VS Code.
+
+* [Start tutorial](/docs/copilot/getting-started.md)
+
+</div>
+
+<div class="docs-action" data-show-in-doc="false" data-show-in-sidebar="true" title="Watch the introduction video">
+Learn about the key features of Visual Studio Code in our introduction video.
+
+* [Watch video](https://www.youtube.com/watch?v=f8_uF_IDV50)
+
+</div>
 
 ## Basic layout
 
@@ -136,7 +150,9 @@ You can also navigate to the location of a file or folder in the native operatin
 > [!TIP]
 > Type `kb(workbench.action.quickOpen)` (**Quick Open**) to quickly search and open a file by its name.
 
-By default, VS Code excludes some folders from showing in the Explorer view, such as `.git`. Use the `setting(files.exclude)` setting to configure rules for hiding files and folders from the Explorer view.
+By default, VS Code excludes some folders from showing in the Explorer view, such as `.git`. Use the `setting(files.exclude)` setting to configure rules for hiding files and folders from the Explorer view. Glob patterns in this setting follow your operating system's case sensitivity rules (case-insensitive on Windows/macOS, case-sensitive on Linux). Learn more about [glob patterns](/docs/editor/glob-patterns.md).
+
+You can also hide files and folders that are specified in your `.gitignore` files by enabling the `setting(explorer.excludeGitIgnore)` setting. When enabled, `.gitignore` patterns are applied with case-insensitive matching on Windows and macOS, and case-sensitive matching on Linux. For example, a pattern like `node_modules` in your `.gitignore` will match `node_modules/`, `Node_Modules/`, `NODE_MODULES/`, and other case variations on Windows and macOS, but only exact matches on Linux.
 
 > [!TIP]
 > You can hide derived resources files, like `*.meta` in Unity, or `*.js` in a TypeScript project. For Unity to exclude the `*.cs.meta` files, the pattern to choose would be: `"**/*.cs.meta": true`. For TypeScript, you can exclude generated JavaScript for TypeScript files with: `"**/*.js": {"when": "$(basename).ts"}`.
